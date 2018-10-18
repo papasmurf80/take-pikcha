@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
+
+
 
 /**
  * Generated class for the LoginRegisterPage page.
@@ -14,12 +18,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'login-register.html',
 })
 export class LoginRegisterPage {
+user: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private app: App) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginRegisterPage');
+  
+  login(user) {
+    console.log("login");
+  this.goHome();
   }
 
+  goHome(){
+    this.app.getRootNav().setRoot(TabsPage, {animate: true, direction: 'forward'});
+  }
 }
