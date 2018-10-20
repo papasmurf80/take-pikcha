@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
-
+import { AppUserProvider } from '../../providers/app-user/app-user';
 
 
 /**
@@ -12,15 +12,16 @@ import { TabsPage } from '../tabs/tabs';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-login-register',
   templateUrl: 'login-register.html',
 })
+
+
 export class LoginRegisterPage {
 user: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private app: App) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private app: App, public appUser:  AppUserProvider) {
   }
 
   
@@ -32,4 +33,10 @@ user: any;
   goHome(){
     this.app.getRootNav().setRoot(TabsPage, {animate: true, direction: 'forward'});
   }
+
+  onRegister(user) {
+    console.log("register");
+    this.appUser.register().subscribe(res => console.log(res), err =>{})
+  }
+
 }
