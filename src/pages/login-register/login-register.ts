@@ -5,6 +5,7 @@ import { TabsPage } from '../tabs/tabs';
 import { AppUserProvider } from '../../providers/app-user/app-user';
 
 
+
 /**
  * Generated class for the LoginRegisterPage page.
  *
@@ -19,24 +20,41 @@ import { AppUserProvider } from '../../providers/app-user/app-user';
 
 
 export class LoginRegisterPage {
-user: any;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private app: App, public appUser:  AppUserProvider) {
+  user: any = {
+    firstName: undefined, 
+    lastName: undefined, 
+    email: undefined, 
+    password: undefined
   }
 
-  
-  login(user) {
-    console.log("login");
-  this.goHome();
+  logUser: any = {
+    email: undefined,
+    password: undefined
   }
 
-  goHome(){
-    this.app.getRootNav().setRoot(TabsPage, {animate: true, direction: 'forward'});
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams, private app: App, public appUser:  AppUserProvider) {
+    }
 
-  onRegister(user) {
-    console.log("register");
-    this.appUser.register().subscribe(res => console.log(res), err =>{})
-  }
+    
+    login(logUser) {
+      console.log("login");
+    this.goHome();
+    }
+
+    goHome(){
+      this.app.getRootNav().setRoot(TabsPage, {animate: true, direction: 'forward'});
+    }
+
+    onRegister() {
+      console.log("register");
+      this.appUser.register(this.user)
+        .subscribe( res => {
+          
+          console.log(res);
+          this.goHome();
+          }, 
+          err =>{}
+        );
+    }
 
 }

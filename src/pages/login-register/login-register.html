@@ -27,12 +27,12 @@
 
     <ion-item class="loginEmail">
       <ion-label color="primary" stacked>email</ion-label>
-      <ion-input type="email" placeholder="enter email"></ion-input>
+      <ion-input type="email" placeholder="enter email" [(ngModel)]="logUser.email"></ion-input>
     </ion-item>
   
     <ion-item>
       <ion-label color="primary" stacked>Password</ion-label>
-      <ion-input type="password" placeholder="enter password"></ion-input>
+      <ion-input type="password" placeholder="enter password" [(ngModel)]="logUser.password"></ion-input>
     </ion-item>      
   </ion-list>
   <button class="loginBtn" ion-button color="secondary" (click)="login()">Login</button>
@@ -44,22 +44,22 @@
 
     <ion-item>
       <ion-label color="primary" stacked>First Name</ion-label>
-      <ion-input type="firstName" placeholder="First Name"></ion-input>
+      <ion-input type="firstName" placeholder="First Name" [(ngModel)]="user.firstName"></ion-input>
     </ion-item>
   
     <ion-item>
       <ion-label color="primary" stacked>Last Name</ion-label>
-      <ion-input type="lastName" placeholder="Last Name"></ion-input>
+      <ion-input type="lastName" placeholder="Last Name" [(ngModel)]="user.lastName"></ion-input>
     </ion-item> 
 
     <ion-item>
       <ion-label color="primary" stacked>email</ion-label>
-      <ion-input type="email" placeholder="enter email"></ion-input>
+      <ion-input type="email" placeholder="enter email" [(ngModel)]="user.email"></ion-input>
     </ion-item>
   
     <ion-item>
       <ion-label color="primary" stacked>Password</ion-label>
-      <ion-input type="password" placeholder="enter password"></ion-input>
+      <ion-input type="password" placeholder="enter password" [(ngModel)]="user.password"></ion-input>
     </ion-item>      
   </ion-list>
   <button class="registerBtn" ion-button color="secondary" (click)="onRegister()">Register</button>

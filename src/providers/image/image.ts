@@ -16,8 +16,4 @@ export class ImageProvider {
     console.log('Hello ImageProvider Provider');
   }
 
-
-
-
-  
 }

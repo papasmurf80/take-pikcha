@@ -8,6 +8,10 @@ import { LoginRegisterPage } from '../pages/login-register/login-register';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 
+import { File } from '@ionic-native/file';
+import { Transfer } from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
+import { Camera } from '@ionic-native/camera';
 
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -44,7 +48,11 @@ import { AppUserProvider } from '../providers/app-user/app-user';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ImageProvider,
-    AppUserProvider
+    AppUserProvider,
+    File,
+    Transfer,
+    Camera,
+    FilePath,
   ]
 })
 export class AppModule {}

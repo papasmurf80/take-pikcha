@@ -17,13 +17,11 @@ export class AppUserProvider {
   }
   userUrl: string = "http://localhost:3000/api/photoappusers"
 
-  register() {
-    return this.http.post(this.userUrl, {
-    "firstName": "Test",
-    "lastName": "Testa",
-    "email": "test2@gmail.com",
-    "password": "12345"
-    })
+  register(user) {
+    return this.http.post(this.userUrl, user)
   }
 
+  login(user) {
+    return this.http.post(this.userUrl + "/login", user)
+  }
 }
